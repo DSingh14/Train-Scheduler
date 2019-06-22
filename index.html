@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <title>Train Time!</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="containersub"></div>
+        <div id="main-title">
+            <div class="alert alert-success" role="alert">
+                <h2 class="alert-heading text-center ">Anytime is Train Time!</h2>
+                <h4 class="mb-0 text-center">Choo Choo.Chee Chee</h4>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <div class="alert alert-success" role="alert">
+                Current Train Schedule
+            </div>
+    </div>
+
+    <thead>
+        <tr>
+            <th scope="col">Train Time</th>
+            <th scope="col">Destination</th>
+            <th scope="col">Frequency(min)</th>
+            <th scope="col">Next Arrival</th>
+            <th scope="col">Minutes Away</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+    </tbody>
+    </table>
+    <div id="addTrain" class="alert alert-success">
+        Add Train
+    </div>
+    <form>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Train Name </label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Destination</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+        </div>
+    </form>
+    <form>
+        <div class="form-group">
+            <label for="formGroupExampleInput">First Train Time(HH:mm - military time)</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Frequency(min)</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </div>
+    </form>
+    <script src="./assets/app.js"></script>
+    </div>
+    </div>
+</body>
+
+</html>

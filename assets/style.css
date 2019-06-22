@@ -1,0 +1,23 @@
+.container{
+    width:960px;
+    background-color: azure;
+    padding-bottom: 10px;
+    margin:0 auto;
+    
+}
+.containersub{
+    width:750px;
+    padding-bottom: 10px;
+    margin:0 auto;
+    
+}
+
+.alert-heading, .mb-0{
+    font: bold;
+    font-size: 40px;
+    font-style: inherit;
+}
+ .mb-0{
+    font: bold;
+    font-size: 25px;
+}
