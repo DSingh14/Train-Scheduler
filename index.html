@@ -1,94 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en-us">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <title>Train Time!</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+    <title>Employee Tracker</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Firebase References -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
 </head>
 
 <body>
+
+    <!-- Employee Tracker -->
     <div class="container">
-        <div class="containersub"></div>
-        <div id="main-title">
-            <div class="alert alert-success" role="alert">
-                <h2 class="alert-heading text-center ">Anytime is Train Time!</h2>
-                <h4 class="mb-0 text-center">Choo Choo.Chee Chee</h4>
+
+        <!-- Jumbotron -->
+        <div class="jumbotron" style="background-color: black; color: white">
+            <h1 class="text-center">Anytime is Train Time</h1>
+            <h3 class="text-center">Choo Choo. Chee Chee .</h3>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <!-- Current Employees-->
+                <div class="card mb-4">
+                    <div class="card-header">Current Train Schedule</div>
+                    <div class="card-body">
+                        <table class="table table-sm table-hover" id='employee-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency(min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minute Away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-        <table class="table table-striped">
-            <div class="alert alert-success" role="alert">
-                Current Train Schedule
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Add Train  -->
+                <div class="card mb-4">
+                    <div class="card-header">Add Train</div>
+                    <div class="card-body">
+
+                        <!-- Train Input -->
+                        <form>
+                            <div class="form-group">
+                                <label for="train-input">Train Name</label>
+                                <input class="form-control" id="employee-name-input" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="destination-input">Destination</label>
+                                <input class="form-control" id="role-input" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="firstTrain-input">First Train Time (HH:mm - military time)</label>
+                                <input class="form-control" id="start-input" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="frequency-input">Frequency(min)</label>
+                                <input class="form-control" id="rate-input" type="text">
+                            </div>
+                            <button class="btn btn-primary float-right" id="add-employee-btn">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
             </div>
+        </div>
+
     </div>
 
-    <thead>
-        <tr>
-            <th scope="col">Train Time</th>
-            <th scope="col">Destination</th>
-            <th scope="col">Frequency(min)</th>
-            <th scope="col">Next Arrival</th>
-            <th scope="col">Minutes Away</th>
+    <!-- JavaScript -->
+    <script src="app.js"></script>
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-    </tbody>
-    </table>
-    <div id="addTrain" class="alert alert-success">
-        Add Train
-    </div>
-    <form>
-        <div class="form-group">
-            <label for="formGroupExampleInput">Train Name </label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2">Destination</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-        </div>
-    </form>
-    <form>
-        <div class="form-group">
-            <label for="formGroupExampleInput">First Train Time(HH:mm - military time)</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2">Frequency(min)</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-        </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-        </div>
-    </form>
-    <script src="./assets/app.js"></script>
-    </div>
-    </div>
 </body>
 
 </html>

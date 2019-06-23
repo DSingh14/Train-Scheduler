@@ -1,15 +1,12 @@
 .container{
     width:960px;
     background-color: azure;
-    padding-bottom: 10px;
-    margin:0 auto;
-    
+    margin:0 auto;   
 }
 .containersub{
     width:750px;
     padding-bottom: 10px;
-    margin:0 auto;
-    
+    margin:0 auto;   
 }
 
 .alert-heading, .mb-0{
@@ -20,4 +17,7 @@
  .mb-0{
     font: bold;
     font-size: 25px;
+}
+.trainInput, .trainInfo, #main-title{
+    border: 2px solid green;
 }
