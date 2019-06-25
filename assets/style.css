@@ -1,6 +1,10 @@
+body{
+    background-image: url("./train\ image.jpg")
+}
+
 .container{
     width:960px;
-    background-color: azure;
+    background-color:#B4A1A5;
     margin:0 auto;   
 }
 .containersub{
@@ -8,7 +12,11 @@
     padding-bottom: 10px;
     margin:0 auto;   
 }
+.jumbotron{
+    background-color:#A31621;
+    color: black;
 
+}
 .alert-heading, .mb-0{
     font: bold;
     font-size: 40px;
@@ -19,54 +27,12 @@
     font-size: 25px;
 }
 .trainInput, .trainInfo, #main-title{
-    border: 2px solid green;
+    border: 2px solid #A31621;
+}
+#add-train-btn{
+    background-color:#A31621;
+    color: black;
+
 }
 
-/* //time formatting
-        var frequency = parseInt(frequency);
-        var currentTime = moment();
-
-        //console.log("Current time: " + moment().format("HHmm"));
-
-        var dateConvert = moment(childSnapshot.val().time, "HHmm").subtract(1, "years");
-
-        //console.log("DATE CONVERTED: " + dateConvert);
-
-        var trainTime = moment(dateConvert).format("HHmm");
-
-        //console.log("Train time : " + trainTime);
-
-        //difference bw the times
-        var timeConvert = moment(trainTime, "HHmm").subtract(1, "years");
-        var timeDifference = moment().diff(moment(timeConvert), "minutes");
-
-        //console.log("Difference in time: " + timeDifference);
-
-        //remainder
-        var timeRemaining = timeDifference % frequency;
-
-        //console.log("Time remaining: " + timeRemaining);
-
-        //time until next train
-        var timeAway = frequency - timeRemaining;
-
-        //console.log("Minutes until next train: " + timeAway);
-
-        //next train arrival
-        var nextArrival = moment().add(timeAway, "minutes");
-
-        //figured out that adding "A" at the end of HH:mm will add AM or PM
-        //given that this is mil/euro format, the AM/PM is not necessary
-        //console.log("Arrival time: " + moment(nextArrival).format("HHmm"));
-
-        var arrivalDisplay = moment(nextArrival).format("HHmm");
-
-        //append data to table
-        $("#boardText").append(
-             +
-            "<td id='arrivalDisplay'>" + arrivalDisplay +
-            "<td id='awayDisplay'>" + timeAway + " minutes until arrival" + "</td></tr>");
-
-        // console.log(arrivalDisplay);
-        // console.log(timeAway);
-    }); */
+ 

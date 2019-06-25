@@ -45,15 +45,52 @@ database.ref().on("child_added", function (childSnapshot) {
     var time = childSnapshot.val().time;
     console.log(name, destination, frequency);
 
+    // Current Time and frequency(function parses a string argument and returns an integer)
+    var frequency = parseInt(frequency)
+    var currentTime = moment();
+    // console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+    var dateConvert = moment(childSnapshot.val().time, "HHmm").subtract(1, "years");
+
+    //console.log("DATE CONVERTED: " + dateConvert);
+    // First Train Time (pushed back 1 year to make sure it comes before current time)
+    var traintimeInput = moment(time, "HH:mm").subtract(1, "years");
+    console.log(traintimeInput);
+
+    var trainTime = moment(dateConvert).format("HHmm");
+
+    //console.log("Train time : " + trainTime);
+
+    //difference bw the times
+    var timeConvert = moment(trainTime, "HHmm").subtract(1, "years");
+    var timeDifference = moment().diff(moment(timeConvert), "minutes");
+
+    //console.log("Difference in time: " + timeDifference);
+
+    //remainder
+    var timeRemaining = timeDifference % frequency;
+
+    //console.log("Time remaining: " + timeRemaining);
+
+    //time until next train
+    var timeAway = frequency - timeRemaining;
+
+    //console.log("Minutes until next train: " + timeAway);
+
+    //next train arrival
+    var nextArrival = moment().add(timeAway, "minutes");
+
+    //console.log("Arrival time: " + moment(nextArrival).format("HHmm"));
+
+    var arrivalDisplay = moment(nextArrival).format("HHmm");
+
     //append data to table
     $("#info-entry").append(
         "<tr><td>" + childSnapshot.val().name +
         "</td><td>" + childSnapshot.val().destination +
         "</td><td>" + childSnapshot.val().frequency +
-        "</td><td>" +
-        "</td><td>" +
-        // "<td '>" + Next Arrival +
-        // "<td '>" + Minutes Away + " minutes until arrival" + 
+        // "</td><td>" +
+        "</td><td>" + arrivalDisplay +
+        "</td><td>" + timeAway + " minutes until arrival" +
         "</td></tr>");
 
 
